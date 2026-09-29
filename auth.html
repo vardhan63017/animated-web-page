@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NovaCart - Login or Sign up</title>
+    <meta name="description" content="Login or create your NovaCart account." />
+    <link rel="stylesheet" href="auth.css" />
+  </head>
+  <body>
+    <main class="auth-page">
+      <a class="brand" href="index.html" aria-label="NovaCart home">
+        <span class="brand-mark">*</span> NovaCart
+      </a>
+
+      <section class="auth-layout" aria-label="Account access">
+        <div class="intro">
+          <p class="eyebrow">WELCOME TO NOVACART</p>
+          <h1>Everything you love,<br /><em>one account away.</em></h1>
+          <p class="intro-copy">
+            Save your favourites, track every order, and get recommendations
+            made for you.
+          </p>
+          <a class="back-link" href="index.html"
+            >Back to shopping <span aria-hidden="true">-></span></a
+          >
+        </div>
+
+        <div class="forms">
+          <section class="auth-card" id="login" aria-labelledby="login-title">
+            <p class="card-kicker">Already a member?</p>
+            <h2 id="login-title">Log in</h2>
+            <form action="#login" method="get">
+              <label for="login-email">Email address</label>
+              <input
+                id="login-email"
+                name="email"
+                type="email"
+                placeholder="you@example.com"
+                required
+              />
+              <label for="login-password">Password</label>
+              <input
+                id="login-password"
+                name="password"
+                type="password"
+                placeholder="Enter your password"
+                required
+              />
+              <div class="form-row">
+                <label class="check"
+                  ><input type="checkbox" name="remember" />
+                  <span>Remember me</span></label
+                >
+                <a href="#login">Forgot password?</a>
+              </div>
+              <button class="primary-button" type="submit">
+                Log in <span aria-hidden="true">-></span>
+              </button>
+            </form>
+          </section>
+
+          <section
+            class="auth-card signup-card"
+            id="signup"
+            aria-labelledby="signup-title"
+          >
+            <p class="card-kicker">New to NovaCart?</p>
+            <h2 id="signup-title">Create an account</h2>
+            <form action="#signup" method="get">
+              <label for="signup-name">Full name</label>
+              <input
+                id="signup-name"
+                name="name"
+                type="text"
+                placeholder="Your name"
+                required
+              />
+              <label for="signup-email">Email address</label>
+              <input
+                id="signup-email"
+                name="email"
+                type="email"
+                placeholder="you@example.com"
+                required
+              />
+              <label for="signup-password">Create password</label>
+              <input
+                id="signup-password"
+                name="password"
+                type="password"
+                placeholder="At least 8 characters"
+                minlength="8"
+                required
+              />
+              <button class="primary-button" type="submit">
+                Sign up <span aria-hidden="true">-></span>
+              </button>
+            </form>
+          </section>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
