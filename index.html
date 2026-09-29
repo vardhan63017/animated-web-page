@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NovaCart — The Next Generation Shopping Experience</title>
+  <meta name="description" content="NovaCart: AI-powered recommendations, immersive previews and lightning-fast delivery." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- Icon sprite (inline, so the page works fully offline) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20.5s-8-4.9-8-11A4.6 4.6 0 0 1 12 6.6a4.6 4.6 0 0 1 8 2.9c0 6.100-8 11-8 11Z"/></symbol>
+    <symbol id="i-cart" viewBox="0 0 24 24"><path d="M2.5 3.5h3l2.4 11.2h10.400l2-8.200H6.300"/><circle cx="9.500" cy="19.500" r="1.500"/><circle cx="17.500" cy="19.500" r="1.500"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8.500" r="3.800" fill="currentColor" stroke="none"/><path fill="currentColor" stroke="none" d="M4.500 20.500c0-4.200 3.300-6.800 7.500-6.800s7.500 2.600 7.500 6.800Z"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-left" viewBox="0 0 24 24"><path d="m14.500 6-6 6 6 6"/></symbol>
+    <symbol id="i-right" viewBox="0 0 24 24"><path d="m9.500 6 6 6-6 6"/></symbol>
+    <symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.500 11.500a6.500 6.500 0 0 0 13 0M12 18v3"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="m12 2.500 2.900 6.100 6.600.8-4.900 4.600 1.300 6.600L12 17.300 6.100 20.600l1.300-6.600L2.500 9.400l6.600-.8Z"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 32 32"><path fill="currentColor" stroke="none" d="M14 2c1.200 7 3.600 10.200 11 12-7.400 1.800-9.800 5-11 12-1.200-7-3.600-10.200-11-12C10.400 12.200 12.800 9 14 2Z"/><path fill="currentColor" stroke="none" d="M25 21c.5 2.400 1.300 3.400 3.500 4-2.200.6-3 1.600-3.500 4-.5-2.400-1.300-3.400-3.500-4 2.200-.6 3-1.600 3.500-4Z"/></symbol>
+  </defs>
+</svg>
+
+<div class="page">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="top">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="NovaCart home">
+        <svg class="brand-star"><use href="#i-spark"/></svg><span>NovaCart</span>
+      </a>
+
+      <form class="search" role="search" id="searchForm">
+        <svg class="s-ico"><use href="#i-search"/></svg>
+        <input id="searchInput" type="search" placeholder="Search for products, brands and more..." aria-label="Search products" />
+        <button type="submit" aria-label="Search"><svg><use href="#i-search"/></svg></button>
+      </form>
+
+      <nav class="glass-nav" aria-label="Primary">
+        <div class="links">
+          <a href="#categories">Categories</a>
+          <a href="#deals">Deals</a>
+          <a href="#track">Track Order</a>
+        </div>
+        <div class="icons">
+          <button class="ib heart" id="wishBtn" aria-label="Wishlist" aria-pressed="false"><svg><use href="#i-heart"/></svg></button>
+          <button class="ib cart" id="cartBtn" aria-label="Cart"><svg><use href="#i-cart"/></svg><span id="cartCount">2</span></button>
+          <button class="ib avatar" aria-label="Profile"><svg><use href="#i-user"/></svg></button>
+        </div>
+      </nav>
+    </header>
+
+    <div class="hero-copy">
+      <p class="eyebrow">SHOP SMARTER <i>•</i> LIVE FUTURISTIC</p>
+      <h1>The Next<br>Generation<br><em>Shopping Experience</em></h1>
+      <p class="lede">Explore a world of premium products with AI-powered<br class="dbr"> recommendations, immersive previews, and lightning-fast delivery.</p>
+      <div class="cta">
+        <button class="btn solid" data-toast="Opening the store…">Shop Now <svg><use href="#i-arrow"/></svg></button>
+        <button class="btn line" data-toast="AI shopping assistant opened">Explore with AI <svg><use href="#i-arrow"/></svg></button>
+      </div>
+      <ul class="trust">
+        <li><img src="assets/img/trust-1.png" alt="" width="34" height="34"><div><b>AI Recommendations</b><small>Just for you</small></div></li>
+        <li><img src="assets/img/trust-2.png" alt="" width="34" height="34"><div><b>Secure Payments</b><small>100% protected</small></div></li>
+        <li><img src="assets/img/trust-3.png" alt="" width="34" height="34"><div><b>Fast Delivery</b><small>At your doorstep</small></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ SHEET ============ -->
+  <main class="sheet">
+
+    <!-- Categories -->
+    <section class="cats" id="categories" aria-label="Shop by category">
+      <button class="arrow prev" aria-label="Previous categories"><svg><use href="#i-left"/></svg></button>
+      <div class="cat-track" id="catTrack">
+        <a class="cat" href="#featured"><img src="assets/img/cat-electronics.png" alt="" width="64" height="64"><span>Electronics</span></a>
+        <a class="cat" href="#featured"><img src="assets/img/cat-fashion.png" alt="" width="64" height="64"><span>Fashion</span></a>
+        <a class="cat" href="#featured"><img src="assets/img/cat-home.png" alt="" width="64" height="64"><span>Home &amp; Living</span></a>
+        <a class="cat" href="#featured"><img src="assets/img/cat-beauty.png" alt="" width="64" height="64"><span>Beauty</span></a>
+        <a class="cat" href="#featured"><img src="assets/img/cat-sports.png" alt="" width="64" height="64"><span>Sports</span></a>
+        <a class="cat" href="#featured"><img src="assets/img/cat-books.png" alt="" width="64" height="64"><span>Books</span></a>
+        <a class="cat" href="#featured"><img src="assets/img/cat-toys.png" alt="" width="64" height="64"><span>Toys &amp; Games</span></a>
+        <a class="cat" href="#featured"><img src="assets/img/cat-groceries.png" alt="" width="64" height="64"><span>Groceries</span></a>
+      </div>
+      <button class="arrow next" aria-label="Next categories"><svg><use href="#i-right"/></svg></button>
+    </section>
+
+    <!-- Featured products -->
+    <section class="featured" id="featured">
+      <div class="f-head">
+        <h2>Featured Products</h2>
+        <div class="tabs" role="tablist">
+          <button class="on" role="tab" aria-selected="true">For You</button>
+          <button role="tab" aria-selected="false">Best Sellers</button>
+          <button role="tab" aria-selected="false">New Arrivals</button>
+          <button role="tab" aria-selected="false">Deals</button>
+        </div>
+        <a class="view-all" href="#featured">View All <svg><use href="#i-arrow"/></svg></a>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <div class="shot"><img src="assets/img/prod-macbook.png" alt="MacBook Air M3"></div><span class="tag t-new">New</span>
+          <h3>MacBook Air M3</h3><p>Supercharged for more.</p>
+          <div class="price">₹1,04,990</div>
+          <div class="rate"><svg><use href="#i-star"/></svg><b>4.8</b><small>(2.1K)</small></div>
+          <button class="add" data-name="MacBook Air M3" aria-label="Add MacBook Air M3 to cart"><svg><use href="#i-cart"/></svg></button>
+        </article>
+        <article class="card">
+          <div class="shot"><img src="assets/img/prod-sony.png" alt="Sony WH-1000XM5"></div><span class="tag t-best">Bestseller</span>
+          <h3>Sony WH-1000XM5</h3><p>Silence the world.</p>
+          <div class="price">₹29,990</div>
+          <div class="rate"><svg><use href="#i-star"/></svg><b>4.7</b><small>(1.8K)</small></div>
+          <button class="add" data-name="Sony WH-1000XM5" aria-label="Add Sony WH-1000XM5 to cart"><svg><use href="#i-cart"/></svg></button>
+        </article>
+        <article class="card">
+          <div class="shot"><img src="assets/img/prod-watch.png" alt="Apple Watch Series 9"></div>
+          <h3>Apple Watch Series 9</h3><p>A smarter way to stay fit.</p>
+          <div class="price">₹41,900</div>
+          <div class="rate"><svg><use href="#i-star"/></svg><b>4.6</b><small>(3.1K)</small></div>
+          <button class="add" data-name="Apple Watch Series 9" aria-label="Add Apple Watch Series 9 to cart"><svg><use href="#i-cart"/></svg></button>
+        </article>
+        <article class="card">
+          <div class="shot"><img src="assets/img/prod-nike.png" alt="Nike Air Max 270"></div><span class="tag t-off">30% OFF</span>
+          <h3>Nike Air Max 270</h3><p>Style meets comfort.</p>
+          <div class="price">₹12,995</div>
+          <div class="rate"><svg><use href="#i-star"/></svg><b>4.5</b><small>(2.3K)</small></div>
+          <button class="add" data-name="Nike Air Max 270" aria-label="Add Nike Air Max 270 to cart"><svg><use href="#i-cart"/></svg></button>
+        </article>
+        <article class="card">
+          <div class="shot"><img src="assets/img/prod-perfume.png" alt="YSL Libre"></div>
+          <h3>YSL Libre</h3><p>For the bold and free.</p>
+          <div class="price">₹9,200</div>
+          <div class="rate"><svg><use href="#i-star"/></svg><b>4.5</b><small>(1.1K)</small></div>
+          <button class="add" data-name="YSL Libre" aria-label="Add YSL Libre to cart"><svg><use href="#i-cart"/></svg></button>
+        </article>
+      </div>
+    </section>
+
+    <!-- Promo banners -->
+    <section class="promos" id="deals">
+      <article class="promo dark">
+        <img class="art" src="assets/img/promo-phones.png" alt="">
+        <div class="copy">
+          <h2>Future in<br>Your Hands</h2>
+          <p>Experience cutting-edge technology with the latest smartphones.</p>
+          <button class="pill" data-toast="Browsing smartphones…">Shop Smartphones <svg><use href="#i-arrow"/></svg></button>
+        </div>
+      </article>
+      <article class="promo light">
+        <img class="art" src="assets/img/promo-fashion.png" alt="">
+        <div class="copy">
+          <h2>Style<br>Reimagined</h2>
+          <p>Discover trending fashion for every you.</p>
+          <button class="pill" data-toast="Browsing fashion…">Shop Fashion <svg><use href="#i-arrow"/></svg></button>
+        </div>
+      </article>
+    </section>
+
+    <!-- AI assistant -->
+    <section class="assistant" aria-label="AI shopping assistant">
+      <img class="robot" src="assets/img/robot.png" alt="">
+      <div class="a-copy">
+        <h2>Your AI Shopping Assistant <i class="dash"></i></h2>
+        <p>Get personalized product recommendations, compare items,<br class="dbr"> check reviews and find the best deals — all in one place.</p>
+        <div class="ask">
+          <input id="aiInput" type="text" placeholder="Ask anything... (e.g. best laptop under 50k)" aria-label="Ask the AI assistant" />
+          <button class="mic" id="micBtn" aria-label="Voice input"><svg><use href="#i-mic"/></svg></button>
+          <button class="go" id="askBtn">Ask</button>
+        </div>
+      </div>
+      <div class="prompts">
+        <button data-prompt="Find me best gaming laptop under 1 lakh">“Find me best gaming laptop under 1 lakh”<svg><use href="#i-arrow"/></svg></button>
+        <button data-prompt="Show trending skincare products">“Show trending skincare products”<svg><use href="#i-arrow"/></svg></button>
+        <button data-prompt="Compare iPhone 15 vs Samsung S24">“Compare iPhone 15 vs Samsung S24”<svg><use href="#i-arrow"/></svg></button>
+        <button data-prompt="What are today’s best offers?">“What are today’s best offers?”<svg><use href="#i-arrow"/></svg></button>
+      </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="benefits" id="track">
+      <div><img src="assets/img/benefit-1.png" alt="" width="60" height="60"><b>Hassle-Free Returns</b><small>7-day easy returns</small></div>
+      <div><img src="assets/img/benefit-2.png" alt="" width="60" height="60"><b>Genuine Products</b><small>100% authentic</small></div>
+      <div><img src="assets/img/benefit-3.png" alt="" width="60" height="60"><b>Exclusive Deals</b><small>Best prices everyday</small></div>
+      <div><img src="assets/img/benefit-4.png" alt="" width="60" height="60"><b>24/7 Support</b><small>We’re here for you</small></div>
+    </section>
+  </main>
+</div>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script src="script.js"></script>
+</body>
+</html>
